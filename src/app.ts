@@ -40,11 +40,11 @@ let connection = mysql.createConnection({
 
 connection.connect(function (err) {
   if (err) {
-    console.error('Error connecting: ' + err.stack)
+    console.error('Error connecting to database: ' + err.stack)
     return
   }
 
-  console.log('Connected as id ' + connection.threadId)
+  console.log('Connected to database as id: ' + connection.threadId)
 })
 connection.end()
 
