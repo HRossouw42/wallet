@@ -4,7 +4,7 @@ module.exports = {
     user: 'root',
     password: 'password',
     database: 'testdb',
-    host: 'localhost'
+    host: 'mysql-server'
   },
   migrations: {
     directory: __dirname + '/database/migrations'

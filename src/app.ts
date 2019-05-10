@@ -30,6 +30,24 @@ app.all('*', (req, res) => {
   res.sendStatus(404)
 })
 
+let mysql = require('mysql')
+let connection = mysql.createConnection({
+  host     : 'mysql-server',
+  database : 'testdb',
+  user     : 'root',
+  password : 'password'
+})
+
+connection.connect(function (err) {
+  if (err) {
+    console.error('Error connecting: ' + err.stack)
+    return
+  }
+
+  console.log('Connected as id ' + connection.threadId)
+})
+connection.end()
+
 const start = async () => {
   const port = process.env.PORT || 3000
   try {

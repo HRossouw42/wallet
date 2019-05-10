@@ -5,15 +5,18 @@ services:
       ports:
         - "3000:3000"
       links:
-        - mysql-server
+        - mysql-server:testdb
     mysql-server:
-      image: mysql
-
+      image: mysql:5.7
+      restart: always
       environment: 
         MYSQL_DATABASE: 'testdb'
         MYSQL_USER: 'root'
         MYSQL_PASSWORD: 'password'
         MYSQL_ROOT_PASSWORD: 'password'
+        MYSQL_ROOT_HOST: "%"
+        MYSQL_NATIVE_PASSWORD: 'password'
+        INSECUREAUTH: 'true'
       ports:
         - '3306:3306'
       expose:
