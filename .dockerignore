@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+.circleci
+.nyc_output
+.vscode
+node_modules
+npm-debug.log
+/coverage/*

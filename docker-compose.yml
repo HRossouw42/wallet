@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+    wallet:
+      build: .
+      ports:
+        - "3000:3000"
+      links:
+        - mysql-server
+    mysql-server:
+      image: mysql
+
+      environment: 
+        MYSQL_DATABASE: 'testdb'
+        MYSQL_USER: 'root'
+        MYSQL_PASSWORD: 'password'
+        MYSQL_ROOT_PASSWORD: 'password'
+      ports:
+        - '3306:3306'
+      expose:
+        - '3306'
+      volumes:
+        - testdb:/var/lib/mysql
+volumes:
+  testdb:
